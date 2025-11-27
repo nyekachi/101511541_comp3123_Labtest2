@@ -1,11 +1,22 @@
 # Getting Started with Create React App
+# 101511541_comp3123_labtest2
+
+## Weather App
+
+## Features
+- Search any city
+- shows temperature, description, humidity, pressure
+- Uses OpenWeather API
+- React hooks (useState, useEffect)
+- Props + Components
+- Hosted on Vercel
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
-
+### 'npm install'
 ### `npm start`
 
 Runs the app in the development mode.\
