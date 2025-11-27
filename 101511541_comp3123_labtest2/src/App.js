@@ -5,12 +5,17 @@ import WeatherCard from './components/WeatherCard';
 import {useQuery} from "@tanstack/react-query";
 import './App.css';
 
-const API_KEY = "a4df56839c8620df59f4e74a1358f977";
+const API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY;
+
+if (!API_KEY) {
+  console.error("Missing OpenWeather API key. Please set REACT_APP_OPENWEATHER_API_KEY in your .env file");
+}
+
 function App() {
   const [city, setCity] = useState("Toronto");
 
   const fetchWeather = async () => {
-    const response = await axios.get('https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${a4df56839c8620df59f4e74a1358f977}');
+    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
     return response.data;
   };
 
