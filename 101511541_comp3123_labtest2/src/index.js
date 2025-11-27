@@ -5,11 +5,15 @@ import App from './App';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import reportWebVitals from './reportWebVitals';
 
+const queryclient = new QueryClient();
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <QueryClientProvider client={QueryClient}>
-    <App />
-  </QueryClientProvider>
+  <React.StrictMode>
+    <QueryClientProvider client={queryclient}>
+      <App />
+    </QueryClientProvider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -8,7 +8,7 @@ import './App.css';
 const API_KEY = process.env.REACT_APP_OPENWEATHER_API_KEY;
 
 if (!API_KEY) {
-  console.error("Missing OpenWeather API key. Please set REACT_APP_OPENWEATHER_API_KEY in your .env file");
+  console.error("Missing OpenWeather API key. Please set REACT_APP_OPENWEATHER_API_KEY in the .env file");
 }
 
 function App() {
