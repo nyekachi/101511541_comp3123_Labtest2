@@ -1,23 +1,30 @@
 import React, {useState}from "react";
+import {FiSearch} from "react-icons/fi";
+import "./SearchBar.css";
 
-export default function SearchBar({onSearch}) {
-    const [city, setCity] = useState("");
+const SearchBar = ({onSearch}) => {
+    const [searchTerm, setSearchTerm] = useState("");
 
-    const submit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        if (!city) return;
-        onSearch(city);
-        setCity("");
+        if (searchTerm.trim()) {
+            onSearch(searchTerm.trim());
+        }
     };
 
     return (
-        <form onSubmit={submit} className="search-bar">
+        <form className="search-bar" onSubmit={handleSubmit}>
             <input
-                placeholder="search a city ..."
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
+                type="text"
+                placeholder="Search for a city..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="search-input"
                 />
-                <button type="submit">Search</button>
+            <button type="submit" className="search-button">
+                <FiSearch  className="search-icon"/>
+            </button>
         </form>
     );
-}
+};
+export default SearchBar;
