@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React, {useState}from "react";
+import {FiSearch} from "react-icons/fi";
 import "./SearchBar.css";
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({onSearch}) => {
     const [searchTerm, setSearchTerm] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (searchTerm.trim()) {
             onSearch(searchTerm.trim());
-            setSearchTerm("");
         }
     };
 
@@ -20,12 +20,11 @@ const SearchBar = ({ onSearch }) => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="search-input"
-            />
+                />
             <button type="submit" className="search-button">
-                Search
+                <FiSearch  className="search-icon"/>
             </button>
         </form>
     );
 };
-
 export default SearchBar;

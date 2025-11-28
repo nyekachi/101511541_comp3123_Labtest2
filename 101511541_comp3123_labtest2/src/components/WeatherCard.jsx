@@ -1,7 +1,7 @@
 function WeatherCard({ weather }) {
     if (!weather || !weather.weather || !weather.weather[0]) return null;
 
-    const { name, sys, weather: [weatherInfo], main } = weather;
+    const { name, sys, weather: [weatherInfo], main, wind } = weather;
     const iconUrl = `http://openweathermap.org/img/wn/${weatherInfo.icon}@2x.png`;
 
     return (
@@ -15,6 +15,11 @@ function WeatherCard({ weather }) {
                 <div className="detail-item">
                     <span className="detail-label">Humidity</span>
                     <span className="detailed-value">{main.humidity}%</span>
+                </div>
+
+                <div className="detail-item">
+                    <span className="detail-label">Wind</span>
+                    <span className="detailed-value">{wind ? Math.round(wind.speed * 3.6) : 'N/A'} km/h</span>
                 </div>
 
                 <div className="detail-item">
